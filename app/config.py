@@ -22,7 +22,7 @@ GOOGLE_DRIVE_LINKS = {
     "transactions": f"https://drive.google.com/uc?id={your_file_id_for_transactions_csv}",  # Link for transactions data
     "oil": f"https://drive.google.com/uc?id={your_file_id_for_oil_csv}",  # Link for oil prices data
     "holidays_events": f"https://drive.google.com/uc?id={your_file_id_for_holidays_csv}",  # Link for holidays data
-    "train": f"https://drive.google.com/uc?id={your_file_id_for_train_csv}"  # Link for training data
+    "train": f"https://drive.google.com/uc?id={your_file_id_for_train_csv}", # Link for training data
     'final_preprocessed_data': f"https://drive.google.com/uc?id={your_file_id_for_final_preprocessed_data_csv}"  # Link for final preprocessed data
 }
 
