@@ -31,21 +31,33 @@ def load_model(model_path=MODEL_PATH):
     # Return the loaded model so it can be used for predictions
     return xgboost_model
 
+
+
 def predict(model, input_data):
     """
     Runs prediction on input data using the pre-trained model.
     
-    This function takes the pre-trained model and input data, processes the data (removes 
-    unnecessary columns), and then performs the prediction using the model. It returns the predictions.
+    This function ensures the input data contains only the features expected 
+    by the model before making predictions.
     """
-    # Drop the original 'date' column as it is not needed for making predictions
-    input_data = input_data.drop(columns=['date'])  # Remove the 'date' column
 
-    # Drop the 'unit_sales' column, as it's the target variable and not needed as input for prediction
-    input_data = input_data.drop(columns=['unit_sales'])  # Remove the 'unit_sales' column
+    # 🔥 Fix: Ensure only columns that exist in `input_data` are dropped
+    columns_to_drop = [col for col in ["date", "unit_sales"] if col in input_data.columns]
+    input_data = input_data.drop(columns=columns_to_drop)
 
-    # Use the model to predict the sales based on the remaining input data
+    # 🔥 Fix: Ensure input_data matches the model's trained features
+    model_features = model.get_booster().feature_names  # Model's expected feature names
+
+    # 🔥 Fix: Add missing columns with default values
+    for feature in model_features:
+        if feature not in input_data.columns:
+            input_data[feature] = 0  # Default fill (change if needed)
+
+    # 🔥 Fix: Reorder columns to match model's training order
+    input_data = input_data[model_features]
+
+    # Run prediction
     prediction = model.predict(input_data)
-    
-    # Return the prediction results
+
     return prediction
+
