@@ -3,6 +3,14 @@ import matplotlib.pyplot as plt  # For visualization
 import pandas as pd  # For data handling
 import datetime  # For handling date inputs
 from sklearn.preprocessing import LabelEncoder  # For encoding categorical features
+import sys
+import os
+
+print("Python Version:", sys.version)
+print("Current Working Directory:", os.getcwd())
+print("Python Path:", sys.path)
+
+from app.config import DATA_PATH, MODEL_PATH
 from app.config import DATA_PATH, MODEL_PATH  # Import paths for data and model
 from data.data_utils import load_data, preprocess_input_data  # Functions to load and preprocess data
 from model.model_utils import load_model, predict  # Functions to load the model and make predictions
