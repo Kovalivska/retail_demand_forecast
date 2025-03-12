@@ -15,7 +15,7 @@ Once parameters are entered, the app provides a **predicted sales value** along 
 
 Unlike the original dataset’s forecasting task (limited to the period **01.01.2014 – 31.03.2014**), my approach allows for **extended forecasting beyond this period**, making it more applicable for real-world business decisions.
 
-![App](outputs/Screenshot at Mar 12 21-51-24.png)
+![App Screenshot](outputs/Screenshot at Mar 12 21-51-24.png)
 
 ---
 
