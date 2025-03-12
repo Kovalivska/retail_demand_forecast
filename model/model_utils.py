@@ -31,33 +31,30 @@ def load_model(model_path=MODEL_PATH):
     # Return the loaded model so it can be used for predictions
     return xgboost_model
 
-
-
 def predict(model, input_data):
     """
     Runs prediction on input data using the pre-trained model.
-    
-    This function ensures the input data contains only the features expected 
-    by the model before making predictions.
     """
+    # Drop 'date' column as it is not needed for prediction
+    input_data = input_data.drop(columns=['date'], errors='ignore')
 
-    # 🔥 Fix: Ensure only columns that exist in `input_data` are dropped
-    columns_to_drop = [col for col in ["date", "unit_sales"] if col in input_data.columns]
-    input_data = input_data.drop(columns=columns_to_drop)
+    # Drop 'unit_sales' column if it exists
+    input_data = input_data.drop(columns=['unit_sales'], errors='ignore')
 
-    # 🔥 Fix: Ensure input_data matches the model's trained features
-    model_features = model.get_booster().feature_names  # Model's expected feature names
+    # Convert categorical columns to integer type to match training data
+    categorical_cols = ['city', 'state', 'type', 'cluster', 'family', 'class', 'perishable']
+    for col in categorical_cols:
+        if col in input_data.columns:
+            input_data[col] = input_data[col].astype('int')
 
-    # 🔥 Fix: Add missing columns with default values
-    for feature in model_features:
-        if feature not in input_data.columns:
-            input_data[feature] = 0  # Default fill (change if needed)
+    print("📌 Debug: Input Data Shape for Prediction:", input_data.shape)
+    print("📌 Debug: Input Data Sample:\n", input_data.head())
 
-    # 🔥 Fix: Reorder columns to match model's training order
-    input_data = input_data[model_features]
+    if 'store_nbr' not in input_data.columns:
+        print("⚠️ Warning: 'store_nbr' is missing before prediction!")
 
     # Run prediction
     prediction = model.predict(input_data)
 
+    print("📌 Debug: Predictions:\n", prediction[:5])  # Print first few predictions
     return prediction
-

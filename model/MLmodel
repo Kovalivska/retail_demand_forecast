@@ -1,0 +1,38 @@
+artifact_path: xgboost_model
+flavors:
+  python_function:
+    data: model.xgb
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.11.11
+  xgboost:
+    code: null
+    data: model.xgb
+    model_class: xgboost.sklearn.XGBRegressor
+    model_format: xgb
+    xgb_version: 2.1.4
+is_signature_from_type_hint: false
+mlflow_version: 2.20.3
+model_size_bytes: 53450
+model_uuid: ebd8214bcf7844d2a04cb6127ae13459
+run_id: 803893167c9b4a059f9a6e6a2e8f5503
+signature:
+  inputs: '[{"type": "long", "name": "store_nbr", "required": true}, {"type": "long",
+    "name": "item_nbr", "required": true}, {"type": "integer", "name": "month", "required":
+    true}, {"type": "integer", "name": "day", "required": true}, {"type": "long",
+    "name": "weekofyear", "required": true}, {"type": "integer", "name": "dayofweek",
+    "required": true}, {"type": "double", "name": "rolling_mean", "required": true},
+    {"type": "double", "name": "rolling_std", "required": true}, {"type": "double",
+    "name": "lag_1", "required": true}, {"type": "double", "name": "lag_7", "required":
+    true}, {"type": "double", "name": "lag_30", "required": true}, {"type": "long",
+    "name": "city", "required": true}, {"type": "long", "name": "state", "required":
+    true}, {"type": "long", "name": "type", "required": true}, {"type": "long", "name":
+    "cluster", "required": true}, {"type": "long", "name": "family", "required": true},
+    {"type": "long", "name": "class", "required": true}, {"type": "long", "name":
+    "perishable", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float32", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-03-11 17:31:14.008458'
