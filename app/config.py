@@ -1,7 +1,7 @@
 # app/config.py
 
 # Directory paths for data and model files
-DATA_PATH = "/Users/svitlanakovalivska/retail_demand_forecast/data"  # Path to the directory containing the raw data files
+DATA_PATH = "/Users/svitlanakovalivska/retail_demand_forecast/data/"  # Path to the directory containing the raw data files
 MODEL_PATH = '/Users/svitlanakovalivska/retail_demand_forecast/model/'  # Path to the directory containing the model files
 
 # Google Drive file IDs for each dataset
