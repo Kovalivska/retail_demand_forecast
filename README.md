@@ -1,9 +1,9 @@
 # Retail Demand Forecast for Corporación Favorita
 #### Project used in the AdvancedML Time-Series cource at Masterschool
-## **📌 Project Overview**
+## ** Project Overview**
 Corporación Favorita, a major Ecuadorian retailer, requires accurate demand forecasting to optimize inventory management and supply chain efficiency. This project leverages **machine learning** and **time series forecasting techniques** to predict sales across multiple stores and products.
 
-## **🔹 Project Result: Streamlit Forecasting App**
+## ** Project Result: Streamlit Forecasting App**
 This project includes an **interactive Streamlit application** that allows users to forecast sales by selecting:
 - **Store**
 - **Item**
@@ -11,7 +11,7 @@ This project includes an **interactive Streamlit application** that allows users
 
 Once parameters are entered, the app provides a **predicted sales value** along with a visualization of historical sales and future predictions.
 
-📌 **Key Feature:**  
+**Key Feature:**  
 
 Unlike the original dataset’s forecasting task (limited to the period **01.01.2014 – 31.03.2014**), my approach allows for **extended forecasting beyond this period**, making it more applicable for real-world business decisions.
 
@@ -20,12 +20,12 @@ Unlike the original dataset’s forecasting task (limited to the period **01.01.
 ---
 
 
-### **🔹 Final Model Selection**
+### ** Final Model Selection**
 After testing multiple models, **XGBoost was selected as the most accurate and efficient** for this task. The **Streamlit app is powered by XGBoost predictions**.
 
 Although other models were explored, **XGBoost demonstrated superior performance**, making it the ideal choice for deployment.
 
-### **🔹 Models Tested**
+### ** Models Tested**
 - ✅ **XGBoost (Final Model - Deployed in Streamlit App)**
 - ARIMA (AutoRegressive Integrated Moving Average)
 - LSTM (Long Short-Term Memory)
@@ -41,7 +41,7 @@ Performance metrics and model evaluations were **tracked using MLflow**, and det
 
 ---
 
-## 📂 **Project Structure**
+## **Project Structure**
 ```
 retail_demand_forecast/
 │-- app/ # Streamlit application files
@@ -63,12 +63,12 @@ retail_demand_forecast/
 
 ---
 
-## 📊 **Data Source**
+## **Data Source**
 The dataset used for this project is derived from the publicly available **["Corporación Favorita Grocery Sales Forecasting"](https://www.kaggle.com/competitions/favorita-grocery-sales-forecasting/data) dataset on Kaggle**.
 
 ---
 
-## 🏬 **Data Filtering Strategy**
+## **Data Filtering Strategy**
 To ensure a focused and efficient analysis, we applied the following **filtering strategy**:
 
 - **Region:** Stores in the state of **Guayas**.
@@ -82,7 +82,7 @@ To ensure a focused and efficient analysis, we applied the following **filtering
 
 ---
 
-# 🚀 **Installation & Setup**
+# **Installation & Setup**
 ## Clone the Repository**
 ```sh
 git clone https://github.com/Kovalivska/retail_demand_forecast.git
@@ -98,10 +98,10 @@ pip install -r requirements.txt
 streamlit run app/main.py
 ```
 
-📌 Author
+Author
 
-👩‍💻 Svitlana Kovalivska, PhD
+Svitlana Kovalivska, PhD
 
-📅 Last Updated: March 12, 2025
+Last Updated: March 12, 2025
 
 
