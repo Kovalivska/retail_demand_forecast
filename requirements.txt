@@ -96,7 +96,7 @@ nbformat==5.10.4
 nest-asyncio==1.6.0
 notebook==7.3.2
 notebook_shim==0.2.4
-numpy==2.2.0
+numpy<2.0
 opentelemetry-api==1.29.0
 opentelemetry-sdk==1.29.0
 opentelemetry-semantic-conventions==0.50b0
@@ -115,7 +115,7 @@ protobuf==5.29.2
 psutil==6.1.0
 ptyprocess==0.7.0
 pure_eval==0.2.3
-pyarrow==18.1.0
+pyarrow>=10.0.0,<15.0.0
 pyasn1==0.6.1
 pyasn1_modules==0.4.1
 pycparser==2.22

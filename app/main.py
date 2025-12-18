@@ -10,7 +10,9 @@ print("Python Version:", sys.version)
 print("Current Working Directory:", os.getcwd())
 print("Python Path:", sys.path)
 
-from app.config import DATA_PATH, MODEL_PATH
+# Add the project root to Python path to enable relative imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from app.config import DATA_PATH, MODEL_PATH  # Import paths for data and model
 from data.data_utils import load_data, preprocess_input_data  # Functions to load and preprocess data
 from model.model_utils import load_model, predict  # Functions to load the model and make predictions
