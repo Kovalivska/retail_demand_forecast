@@ -11,9 +11,18 @@ print("Current Working Directory:", os.getcwd())
 print("Python Path:", sys.path)
 
 # Add the project root to Python path to enable relative imports
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
-from app.config import DATA_PATH, MODEL_PATH  # Import paths for data and model
+try:
+    from app.config import DATA_PATH, MODEL_PATH  # Import paths for data and model
+except ImportError:
+    # Fallback for cloud deployment
+    import sys
+    sys.path.append('/mount/src/retail_demand_forecast')
+    from app.config import DATA_PATH, MODEL_PATH
+
 from data.data_utils import load_data, preprocess_input_data  # Functions to load and preprocess data
 from model.model_utils import load_model, predict  # Functions to load the model and make predictions
 

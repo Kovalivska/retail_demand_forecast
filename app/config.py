@@ -1,8 +1,10 @@
 # app/config.py
+import os
 
-# Directory paths for data and model files
-DATA_PATH = "/Users/svitlanakovalivska/retail_demand_forecast/data"  # Path to the directory containing the raw data files
-MODEL_PATH = '/Users/svitlanakovalivska/retail_demand_forecast/model/'  # Path to the directory containing the model files
+# Directory paths for data and model files - using relative paths for cloud deployment
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_PATH = os.path.join(project_root, "data")  # Path to the directory containing the raw data files
+MODEL_PATH = os.path.join(project_root, "model")  # Path to the directory containing the model files
 
 # Google Drive file IDs for each dataset
 # Replace these with actual file IDs from Google Drive where the datasets are stored
