@@ -20,8 +20,12 @@ from model.model_utils import load_model, predict  # Functions to load the model
 # Fixed max training date
 max_train_date = datetime.date(2014, 3, 31)  # Last date in training data
 
-# Load Logo
-st.image("/Users/svitlanakovalivska/retail_demand_forecast/outputs/logo.png", width=200)
+# Load Logo - use relative path for cloud deployment
+logo_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "outputs", "logo.png")
+if os.path.exists(logo_path):
+    st.image(logo_path, width=200)
+else:
+    st.markdown("### 🏪 Retail Demand Forecast")
 
 # Title with dark red color
 st.markdown(

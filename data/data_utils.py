@@ -23,7 +23,8 @@ def load_data(data_path=DATA_PATH):
     }
 
     # Check if we have preprocessed data in inputs folder
-    preprocessed_file = "/Users/svitlanakovalivska/retail_demand_forecast/inputs/final_preprocessed_data.csv"
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    preprocessed_file = os.path.join(project_root, "inputs", "final_preprocessed_data.csv")
     
     # Only download if files don't exist locally
     for key, file_path in files.items():
@@ -47,7 +48,7 @@ def load_data(data_path=DATA_PATH):
         print(f"Loaded {len(df_filtered)} records from preprocessed data")
     else:
         print("Preprocessed data not found, trying to load from train.csv...")
-        train_file = "/Users/svitlanakovalivska/retail_demand_forecast/inputs/filtered_train_guayas_families.csv"
+        train_file = os.path.join(project_root, "inputs", "filtered_train_guayas_families.csv")
         
         if os.path.exists(train_file):
             print("Loading filtered training data...")
